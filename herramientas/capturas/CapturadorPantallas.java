@@ -32,6 +32,7 @@ import java.util.regex.Pattern;
  * A cada imagen se le agrega arriba una barra con la URL visitada y la fecha/hora de la captura.
  *
  * Uso (Java 21, sin compilar):  java CapturadorPantallas.java <carpetaSalida> [urlBase]
+ * Captura de una sola página:   java CapturadorPantallas.java <carpetaSalida> <url> --solo <nombre>
  */
 public class CapturadorPantallas {
 
@@ -55,7 +56,13 @@ public class CapturadorPantallas {
             enviar("Page.enable", "{}");
             enviar("Runtime.enable", "{}");
             vista(1366, 860, false);
-            recorrido();
+            if (args.length > 3 && "--solo".equals(args[2])) {
+                contador = 0;
+                ir("");
+                capturar(args[3]);
+            } else {
+                recorrido();
+            }
             System.out.println("Capturas guardadas en " + SALIDA.toAbsolutePath());
         } finally {
             try { ws.sendClose(WebSocket.NORMAL_CLOSURE, "fin").join(); } catch (Exception ignored) { }
