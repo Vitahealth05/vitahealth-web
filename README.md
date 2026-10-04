@@ -3,6 +3,9 @@
 **Evidencia GA7-220501096-AA2-EV02: Módulos de software codificados y probados**
 SENA · Análisis y Desarrollo de Software · Grupo 5
 Aprendices: Ingri Daniela Rojas, Luna Michell Montealegre, Luisa Fernanda Betancur
+Repositorio: https://github.com/Vitahealth05/vitahealth-web
+
+![Panel principal de VitaHealth](docs/capturas/17-cp11-panel-con-estadisticas.png)
 
 VitaHealth es una aplicación web y móvil para promover hábitos saludables. Este repositorio tiene el **módulo web de seguimiento de hábitos**, construido con **Java Servlets, JSP y JSTL** sobre **Apache Tomcat 10.1**. Incluye estas funciones:
 
@@ -123,6 +126,18 @@ La configuración por defecto (`src/main/resources/db.properties`) usa **H2 embe
 
 - **Pruebas automatizadas (JUnit 5):** 17 pruebas en 4 clases. Cubren el cifrado de contraseñas, las validaciones de los formularios, los cálculos de IMC, calorías e hidratación, la herencia `Persona`→`Usuario` y la integración de todos los DAO con una base H2 en memoria.
 - **Pruebas funcionales:** son los casos CP01 a CP12 de [`docs/historias-de-usuario-y-pruebas.md`](docs/historias-de-usuario-y-pruebas.md), con las capturas de pantalla de la evidencia.
+
+## Capturas de pantalla
+
+Todas las capturas están en [`docs/capturas`](docs/capturas). Las tomó la prueba funcional automatizada (`herramientas/capturas/CapturadorPantallas.java`): abre Microsoft Edge, llena y envía los formularios reales contra Tomcat y guarda una imagen por paso. Arriba de cada imagen va la URL visitada y la hora.
+
+| | |
+|---|---|
+| ![Bienvenida](docs/capturas/01-cp01-bienvenida.png) Bienvenida | ![Registro con validaciones](docs/capturas/04-cp02b-registro-validacion-post.png) Registro: validaciones (POST) |
+| ![Login](docs/capturas/06-cp03b-cuenta-creada-redirect-login.png) Cuenta creada y login | ![Hidratación](docs/capturas/12-cp07b-hidratacion-registrada.png) Hidratación (POST) |
+| ![Actividad](docs/capturas/15-cp08c-actividad-registrada.png) Actividad física (POST) | ![Filtro GET](docs/capturas/16-cp09-filtro-historial-get.png) Filtro del historial (GET) |
+| ![Perfil](docs/capturas/10-cp10b-perfil-guardado-imc.png) Perfil e IMC | ![Cerrar sesión](docs/capturas/20-cp12a-modal-cerrar-sesion.png) Cerrar sesión |
+| ![Pruebas JUnit](docs/capturas/23-pruebas-junit-17-exitosas.png) 17 pruebas JUnit exitosas | ![Móvil](docs/capturas/18-responsive-panel-movil.png) Vista móvil |
 
 ## Seguridad aplicada (RNF04)
 
