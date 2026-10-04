@@ -1,0 +1,9 @@
+<%-- Mensajes "flash": se guardan en sesión antes del redirect y se borran al mostrarse --%>
+<c:if test="${not empty sessionScope.mensaje}">
+  <div class="alerta exito" role="status"><c:out value="${sessionScope.mensaje}" /></div>
+  <c:remove var="mensaje" scope="session" />
+</c:if>
+<c:if test="${not empty sessionScope.error}">
+  <div class="alerta error" role="alert"><c:out value="${sessionScope.error}" /></div>
+  <c:remove var="error" scope="session" />
+</c:if>

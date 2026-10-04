@@ -1,0 +1,46 @@
+<%-- Barra de navegación principal (mapa de navegación: Inicio, Actividad, Hidratación, Perfil) --%>
+<header class="barra">
+  <div class="barra-contenido">
+    <a class="marca" href="${ctx}/dashboard">
+      <img src="${ctx}/img/logo.svg" alt="">
+      <span><strong>VitaHealth</strong><small>Tu estilo de vida saludable</small></span>
+    </a>
+    <nav class="menu" aria-label="Principal">
+      <a href="${ctx}/dashboard" class="${seccion == 'inicio' ? 'activo' : ''}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Inicio</a>
+      <a href="${ctx}/actividad" class="${seccion == 'actividad' ? 'activo' : ''}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="4" r="2"/><path d="M7 21l3-6 3 2v5M10 15l1.5-6 3.5 3h3M11.5 9 8 10l-2 3"/></svg>Actividad</a>
+      <a href="${ctx}/hidratacion" class="${seccion == 'hidratacion' ? 'activo' : ''}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>Hidratación</a>
+      <a href="${ctx}/perfil" class="${seccion == 'perfil' ? 'activo' : ''}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Perfil</a>
+    </nav>
+    <div class="usuario-barra">
+      <span class="nombre-barra texto-2 pequeno"><c:out value="${usuario.nombreCompleto}" /></span>
+      <div class="avatar" title="${fn:escapeXml(usuario.correo)}">${fn:escapeXml(usuario.inicial)}</div>
+      <button type="button" class="boton fantasma pequeno" title="Cerrar sesión"
+              onclick="document.getElementById('modalSalir').showModal()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h4v16h-4M10 8l-4 4 4 4M6 12h10"/></svg>Salir
+      </button>
+    </div>
+  </div>
+</header>
+
+<%-- Modal "Cerrar sesión" (mapa de navegación). El cierre se envía por POST a /logout --%>
+<dialog id="modalSalir" class="modal">
+  <form action="${ctx}/logout" method="post">
+    <h3 style="color:var(--rojo)">Cerrar sesión</h3>
+    <p class="texto-2">¿Estás seguro que deseas cerrar tu sesión?</p>
+    <div class="acciones" style="justify-content:flex-end">
+      <button type="button" class="boton fantasma" onclick="this.closest('dialog').close()">Cancelar</button>
+      <button type="submit" class="boton" style="background:var(--rojo)">Cerrar sesión</button>
+    </div>
+  </form>
+</dialog>
+
+<nav class="nav-movil" aria-label="Navegación inferior">
+  <a href="${ctx}/dashboard" class="${seccion == 'inicio' ? 'activo' : ''}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Inicio</a>
+  <a href="${ctx}/actividad" class="${seccion == 'actividad' ? 'activo' : ''}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="14" cy="4" r="2"/><path d="M7 21l3-6 3 2v5M10 15l1.5-6 3.5 3h3M11.5 9 8 10l-2 3"/></svg>Actividad</a>
+  <a href="${ctx}/hidratacion" class="${seccion == 'hidratacion' ? 'activo' : ''}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>Hidratación</a>
+  <a href="${ctx}/perfil" class="${seccion == 'perfil' ? 'activo' : ''}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Perfil</a>
+</nav>
