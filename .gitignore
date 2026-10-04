@@ -1,0 +1,27 @@
+# Compilación
+target/
+build/
+out/
+*.class
+*.war
+
+# Entorno local (JDK, Tomcat y librerías descargadas por los scripts)
+entorno/
+lib/
+
+# Base de datos local H2
+*.mv.db
+*.trace.db
+
+# IDE
+.idea/
+*.iml
+.vscode/
+nbproject/private/
+.settings/
+.project
+.classpath
+
+# Sistema operativo
+Thumbs.db
+.DS_Store
