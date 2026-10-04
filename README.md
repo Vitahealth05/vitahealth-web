@@ -1,9 +1,10 @@
 # VitaHealth Web: módulo con Servlets y JSP
 
 **Evidencia GA7-220501096-AA2-EV02: Módulos de software codificados y probados**
-SENA · Análisis y Desarrollo de Software · Grupo 5
-Aprendices: Ingri Daniela Rojas, Luna Michell Montealegre, Luisa Fernanda Betancur
-Repositorio: https://github.com/Vitahealth05/vitahealth-web
+
+- SENA · Análisis y Desarrollo de Software · Grupo 5
+- Aprendices: Ingri Daniela Rojas, Luna Michell Montealegre, Luisa Fernanda Betancur
+- Repositorio: https://github.com/Vitahealth05/vitahealth-web
 
 ![Panel principal de VitaHealth](docs/capturas/17-cp11-panel-con-estadisticas.png)
 
