@@ -79,8 +79,10 @@ p { margin: 0 0 .6rem; }
 /* ---------- Contenido ---------- */
 .contenido { max-width: 1080px; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
 .encabezado { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
-.encabezado .fecha { color: var(--texto-2); font-weight: 600; text-transform: capitalize; }
+.encabezado .fecha { display: inline-block; color: var(--texto-2); font-weight: 600; }
+.encabezado .fecha::first-letter { text-transform: uppercase; }
 .rejilla { display: grid; gap: 1rem; }
+.rejilla > * { min-width: 0; }
 .rejilla-3 { grid-template-columns: repeat(3, 1fr); }
 .rejilla-2 { grid-template-columns: 1.1fr .9fr; }
 .tarjeta {
@@ -99,7 +101,7 @@ p { margin: 0 0 .6rem; }
 .icono.imc { background: #f1eefc; color: var(--morado); }
 .icono.fuego { background: #fdf3e4; color: var(--naranja); }
 .cifra { font-size: 1.7rem; font-weight: 800; }
-.cifra small { font-size: .9rem; color: var(--texto-2); font-weight: 600; }
+.cifra small { margin-left: .3rem; font-size: .9rem; color: var(--texto-2); font-weight: 600; }
 .fila { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; }
 
 .progreso { height: 8px; background: #edf1ee; border-radius: 99px; overflow: hidden; margin-top: .6rem; }
@@ -184,7 +186,7 @@ p { margin: 0 0 .6rem; }
 
 /* ---------- Hidratación ---------- */
 .anillo { position: relative; width: 210px; height: 210px; margin: .5rem auto 1rem; }
-.anillo svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.anillo > svg { width: 100%; height: 100%; transform: rotate(-90deg); }
 .anillo .centro { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
 .anillo .centro strong { font-size: 3rem; line-height: 1; }
 .anillo .centro em { font-style: normal; color: var(--azul); font-weight: 800; }
@@ -192,6 +194,9 @@ p { margin: 0 0 .6rem; }
 .vaso { width: 30px; height: 40px; border: 2px solid #a9cdee; border-top: 0; border-radius: 0 0 8px 8px; position: relative; overflow: hidden; }
 .vaso.lleno::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 80%; background: var(--azul); }
 .botones-agua { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6rem; }
+.botones-agua .boton { flex-direction: column; gap: 0; line-height: 1.2; padding: .6rem .4rem; }
+.botones-agua .boton br { display: none; }
+.botones-agua .boton small { font-weight: 600; opacity: .85; }
 .lista { list-style: none; margin: 0; padding: 0; }
 .lista li { display: flex; align-items: center; gap: .8rem; padding: .75rem 0; border-bottom: 1px solid var(--borde); }
 .lista li:last-child { border-bottom: 0; }

@@ -243,8 +243,8 @@ public class CapturadorPantallas {
     static void capturar(String nombre) throws Exception {
         String direccion = url();
         int altoPagina = Integer.parseInt(js("String(Math.max(document.documentElement.scrollHeight, document.body.scrollHeight))"));
-        // Los modales se capturan sólo en la ventana visible
-        boolean modalAbierto = "true".equals(js("String(!!document.querySelector('dialog[open]'))"));
+        // Los modales y la vista móvil se capturan sólo en la ventana visible (como en un teléfono)
+        boolean modalAbierto = "true".equals(js("String(!!document.querySelector('dialog[open]'))")) || movil;
         int h = modalAbierto ? alto : Math.min(Math.max(altoPagina, alto), 3000);
         String r = enviar("Page.captureScreenshot",
                 "{\"format\":\"png\",\"captureBeyondViewport\":" + !modalAbierto

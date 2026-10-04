@@ -26,5 +26,5 @@ Copy-Item "$PROY\src\main\resources\*" $SALIDA -Force
 New-Item -ItemType Directory -Force "$PROY\target" | Out-Null
 & "$JDK\java.exe" "-Dstdout.encoding=UTF-8" -jar $JUNIT execute `
     --class-path "$SALIDA;$ENT\lib\h2-2.2.224.jar" --scan-class-path `
-    --details=tree --disable-banner --reports-dir "$PROY\target\reportes-pruebas"
+    --details=tree --disable-banner --disable-ansi-colors --reports-dir "$PROY\target\reportes-pruebas"
 exit $LASTEXITCODE

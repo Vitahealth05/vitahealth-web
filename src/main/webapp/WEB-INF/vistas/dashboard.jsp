@@ -65,7 +65,7 @@
             <span class="cifra">${perfil.imc}</span>
             <span class="etiqueta">${perfil.clasificacionImc}</span>
           </div>
-          <p class="pequeno texto-2" style="margin-top:.5rem">${perfil.pesoKg} kg · ${perfil.alturaCm} cm · <a href="${ctx}/perfil">Actualizar</a></p>
+          <p class="pequeno texto-2" style="margin-top:.5rem"><fmt:formatNumber value="${perfil.pesoKg}" maxFractionDigits="1" /> kg · <fmt:formatNumber value="${perfil.alturaCm}" maxFractionDigits="1" /> cm · <a href="${ctx}/perfil">Actualizar</a></p>
         </c:when>
         <c:otherwise>
           <p class="texto-2">Completa tu peso y altura para calcular tu IMC.</p>
